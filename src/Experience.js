@@ -28,7 +28,7 @@ export default function Experience(props){
 
 const animations1 = useAnimations(animations, model.scene)
 
-const [slide, setSlide] = useState(0.1);
+const [slide, setSlide] = useState(1);
 
 
 const handleChange = e => {
@@ -57,7 +57,7 @@ useEffect(() => {
 
 
     <Html
-     position={[0, -2, 0]}>
+     position={[0, -4, 0]}>
     <input type="range" id="dots" name="dots" min="0" max="1"  step=".02" onChange={handleChange}/>
     </Html>
 
@@ -67,7 +67,7 @@ useEffect(() => {
 
 
       <primitive ref={raph} object={ model.scene } 
-         scale={ 1 }   
+         scale={3 }   
           />
 
         <EffectComposer >
