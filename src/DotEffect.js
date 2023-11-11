@@ -78,8 +78,8 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
 
 
 export default class DotEffect extends Effect{
-    constructor({uTime, blendFunction =BlendFunction.DARKEN, slide}){
-       
+    constructor({slide,uTime, blendFunction =BlendFunction.DARKEN}){
+      
         super('DotEffect', 
         fragmentShader, 
         {
@@ -97,6 +97,7 @@ export default class DotEffect extends Effect{
 
 update(renderer, inputBuffer, deltaTime){
     this.uniforms.get('uTime').value += deltaTime
+	
 }
 
 }

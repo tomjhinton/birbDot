@@ -28,19 +28,20 @@ export default function Experience(props){
 
 const animations1 = useAnimations(animations, model.scene)
 
-const [slide, setSlide] = useState(0);
+const [slide, setSlide] = useState(0.1);
 
 
 const handleChange = e => {
-    console.log(e.target.value)
+    
     setSlide(e.target.value)
+    
   }
 
 
 useEffect(() => {
     let sparklyAction
 
-      console.log(raph)
+     
      sparklyAction = animations1.actions['metarigAction'];
     sparklyAction.reset().fadeIn(0.5).play();
 
@@ -53,14 +54,7 @@ useEffect(() => {
 
         <>
 
-<EffectComposer >
-    
-    <Dot 
-    ref={ dotRef }
-   slide
-    />
 
-</EffectComposer>
 
     <Html
      position={[0, -2, 0]}>
@@ -76,7 +70,15 @@ useEffect(() => {
          scale={ 1 }   
           />
 
+        <EffectComposer >
+            
+            <Dot 
+            slide={slide}
+            ref={ dotRef }
+        
+            />
 
+        </EffectComposer>
 
    
         </>
