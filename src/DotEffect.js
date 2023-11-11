@@ -73,7 +73,7 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
 	float H = G;
     G *= step(length(uv2-.5),.1);
     
-    outputColor = mix(inputColor, vec4( vec3( mix(H, G, step(vUv.x, uSlide * .9) ) ), 1 ), step(vUv.x, uSlide));
+    outputColor = mix(inputColor, vec4( vec3( mix(H, G, step(vUv.x, uSlide * .7) ) ), 1 ), step(vUv.x, uSlide));
 }`
 
 
