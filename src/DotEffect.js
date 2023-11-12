@@ -27,6 +27,8 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
     // color.rgb *= step(length(uv2-.5),.2);
 
 
+	
+
 
     vec2 texel = vec2( 1.0 / resolution.x, 1.0 / resolution.y );
 
@@ -38,6 +40,9 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
 		// fetch the 3x3 neighbourhood of a fragment
 
 		// first column
+
+		// float tx0y0 = dot(texture2D( tDiffuse, vUv + texel * vec2( -1, -1 ) ).rgb, vec3(0.299, 0.587, 0.114));
+
 
 			float tx0y0 = texture2D( tDiffuse, vUv + texel * vec2( -1, -1 ) ).r;
 			float tx0y1 = texture2D( tDiffuse, vUv + texel * vec2( -1,  0 ) ).r;
@@ -70,8 +75,12 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
 		// magnitute of the total gradient
 
 			float G = sqrt( ( valueGx * valueGx ) + ( valueGy * valueGy ) );
+
+			
 	float H = G;
-    G *= step(length(uv2-.5),.1);
+
+
+    G *= step(length(uv2-.5),.2);
     
     outputColor = mix(inputColor, vec4( vec3( mix(H, G, step(vUv.x, uSlide * .7) ) ), 1 ), step(vUv.x, uSlide));
 }`
